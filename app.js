@@ -6,7 +6,7 @@ const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'name',
+      name: 'named',
       message: 'What is your name? (Required)',
       validate: nameInput => {
         if (nameInput) {
@@ -60,7 +60,7 @@ Add a New Project
     .prompt([
       {
         type: 'input',
-        name: 'name',
+        name: 'named',
         message: 'What is the name of your project? (Required)',
         validate: nameInput => {
           if (nameInput) {
@@ -129,13 +129,13 @@ Add a New Project
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    console.log(portfolioData);
-    // will be uncommented in lesson 4
-    // const pageHTML = generatePage(portfolioData);
-    // fs.writeFile('./index.html', pageHTML, err => {
-    //   if (err) throw new Error(err);
-    //   console.log('Page created! Check out index.html in this directory to see it!');
-    // });
+
+ 
+    const pageHTML = generatePage(portfolioData);
+    fs.writeFile('./index.html', pageHTML, err => {
+      if (err) throw new Error(err);
+      console.log('Page created! Check out index.html in this directory to see it!');
+    });
   });
 
 
